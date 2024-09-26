@@ -1,0 +1,45 @@
+def emparejamiento_estable(preferencias_hombres, preferencias_mujeres):
+    # Diccionario para almacenar las parejas de mujeres con sus respectivos hombres
+    comprometidos_con = {}
+    hombres_libres = list(preferencias_hombres.keys())  # Hombres que aún no están emparejados
+    propuestas = {hombre: 0 for hombre in preferencias_hombres}  # Número de propuestas realizadas por cada hombre
+
+    # Mientras haya hombres solteros
+    while hombres_libres:
+        hombre = hombres_libres[0]  # Elige al primer hombre libre
+        lista_preferencias_hombre = preferencias_hombres[hombre]
+        mujer = lista_preferencias_hombre[propuestas[hombre]]  # Elige la primera mujer a la que aún no ha propuesto
+        propuestas[hombre] += 1  # Incrementa el número de propuestas hechas por este hombre
+
+        if mujer not in comprometidos_con:  # Si la mujer no está comprometida
+            comprometidos_con[mujer] = hombre  # Se comprometen
+            hombres_libres.pop(0)  # Elimina al hombre de la lista de libres
+
+        else:  # Si la mujer ya está comprometida
+            pareja_actual = comprometidos_con[mujer]
+            # Verifica si prefiere al nuevo hombre en lugar de su pareja actual
+            if preferencias_mujeres[mujer].index(hombre) < preferencias_mujeres[mujer].index(pareja_actual):
+                comprometidos_con[mujer] = hombre  # Cambia de pareja
+                hombres_libres.pop(0)  # El nuevo hombre ahora está comprometido
+                hombres_libres.append(pareja_actual)  # El antiguo hombre vuelve a estar soltero
+
+    return comprometidos_con
+
+# Ejemplo de uso
+preferencias_hombres = {
+    'Hombre1': ['Mujer1', 'Mujer2', 'Mujer3'],
+    'Hombre2': ['Mujer2', 'Mujer3', 'Mujer1'],
+    'Hombre3': ['Mujer3', 'Mujer1', 'Mujer2']
+}
+
+preferencias_mujeres = {
+    'Mujer1': ['Hombre1', 'Hombre2', 'Hombre3'],
+    'Mujer2': ['Hombre2', 'Hombre1', 'Hombre3'],
+    'Mujer3': ['Hombre3', 'Hombre2', 'Hombre1']
+}
+
+parejas = emparejamiento_estable(preferencias_hombres, preferencias_mujeres)
+
+print("Parejas emparejadas:")
+for mujer, hombre in parejas.items():
+    print(f"{mujer} está emparejada con {hombre}")
