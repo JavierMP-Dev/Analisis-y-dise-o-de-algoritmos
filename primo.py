@@ -1,8 +1,8 @@
 #print("Números primos")
 
-import time
+#import time
 
-start_time = time.perf_counter()
+#start_time = time.perf_counter()
 
 limite = 104750  #numero limite para encontrar el numero 10001 primo
 contador_primos=0  #variable para imprimir iteraciones
@@ -24,9 +24,9 @@ for elemento in range(2, limite + 1):
         
 #print("Total de primos: " + str(contador_primos))
 
-print("El primo que buscamos es: " + str(arreglo_primos[-1]))
+print(  str(arreglo_primos[-1]))
 
 #print(arreglo_primos[-1])
 
-end_time = time.perf_counter()
-print(f"Tiempo de ejecución: {end_time - start_time:.2f} segundos")
+#end_time = time.perf_counter()
+#print(f"Tiempo de ejecución: {end_time - start_time:.2f} segundos")
