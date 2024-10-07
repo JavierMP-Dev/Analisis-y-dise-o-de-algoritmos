@@ -6,7 +6,8 @@ import time
 start_time = time.perf_counter()
 
 r = {4,2}
-n = {5,3,2,4}
+n = {1,2,3,4}
+
 def ordenar_arreglos(n,r):
     # Ordena los arreglos de menor a mayor
     return sorted(r,n)
@@ -15,15 +16,18 @@ def ordenar_arreglos(n,r):
 def generar_permutaciones(n, r):
     # Si el número de elementos a elegir es igual al número total de elementos, solo hay    
     # una permutación posible, que es la misma que el conjunto original
-    print("hola")
-
-
+    for elementos in n:
+        print("(" + str(elementos)+",")
+        for eleme in r:
+            print("," + str(eleme)+")")
+"""
 for elementos in n:
     print(elementos)
 
 for eleme in r:
     print(eleme)
-
+"""
+generar_permutaciones(n,r)
 
 end_time = time.perf_counter()
 print(f"Tiempo de ejecución: {end_time - start_time:.2f} segundos")
