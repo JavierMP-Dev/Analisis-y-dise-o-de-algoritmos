@@ -18,8 +18,7 @@ def generar_permutaciones(n, r):
     # una permutación posible, que es la misma que el conjunto original
     for elementos in n:
         print("(" + str(elementos)+",")
-        for eleme in r:
-            print("," + str(eleme)+")")
+        
 """
 for elementos in n:
     print(elementos)
