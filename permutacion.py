@@ -19,13 +19,7 @@ def generar_permutaciones(n, r):
     for elementos in n:
         print("(" + str(elementos)+",")
         
-"""
-for elementos in n:
-    print(elementos)
 
-for eleme in r:
-    print(eleme)
-"""
 generar_permutaciones(n,r)
 
 end_time = time.perf_counter()
