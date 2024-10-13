@@ -23,7 +23,7 @@ def permutar_listas(lista1, lista2):
     return permutaciones
 
 # Ejemplo de uso
-lista1 = [5, 6]
+lista1 = [4, 2]
 lista2 = [1, 2,3,4]
 resultado = permutar_listas(lista1, lista2)
 
