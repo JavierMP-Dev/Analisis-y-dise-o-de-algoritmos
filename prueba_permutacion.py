@@ -1,34 +1,25 @@
-import time
-
-start_time = time.perf_counter()
-
-def permutar_recursivo(pares, permutaciones, actual=[]):
-    # Si hemos llegado a una permutación completa
-    if not pares:
-        permutaciones.append(actual)
+def permutar(array, R, permutacion_actual=[], usadas=[]):
+    # Caso base: si la permutación actual tiene el tamaño R, se imprime
+    if len(permutacion_actual) == R:
+        print(permutacion_actual)
         return
+    
+    # Recorremos los elementos del array
+    for i in range(len(array)):
+        # Si el elemento no ha sido usado en la permutación actual, lo añadimos
+        if i not in usadas:
+            # Añadir el elemento a la permutación actual
+            permutacion_actual.append(array[i])
+            usadas.append(i)
+            
+            # Llamada recursiva para continuar generando permutaciones
+            permutar(array, R, permutacion_actual, usadas)
+            
+            # Deshacer el cambio (backtracking)
+            permutacion_actual.pop()
+            usadas.pop()
 
-    # Iterar sobre los pares restantes
-    for i, par in enumerate(pares):
-        # Construir una nueva permutación con el par actual
-        nueva_permutacion = actual + [par]
-        # Llamar a la función recursiva con los pares restantes
-        permutar_recursivo(pares[:i] + pares[i+1:], permutaciones, nueva_permutacion)
-
-def permutar_listas(lista1, lista2):
-    # Combinar los elementos de ambas listas en pares de 2 en 2
-    pares = list(zip(lista1, lista2))
-    permutaciones = []
-    permutar_recursivo(pares, permutaciones)
-    return permutaciones
-
-# Ejemplo de uso
-lista1 = [4, 2]
-lista2 = [1, 2,3,4]
-resultado = permutar_listas(lista1, lista2)
-
-for p in resultado:
-    print(p)
-
-end_time = time.perf_counter()
-print(f"Tiempo de ejecución: {end_time - start_time:.2f} segundos")
+# Ejemplo de uso:
+array = [1, 2, 3, 4]
+R = 2
+permutar(array, R)
