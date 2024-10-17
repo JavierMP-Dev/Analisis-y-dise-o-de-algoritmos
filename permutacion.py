@@ -5,7 +5,7 @@ Dado un array de tamaño N, genere e imprima todas las permutaciones posibles de
 import time
 start_time = time.perf_counter()
 
-r = {4,2}
+r = {2}
 n = {1,2,3,4}
 
 def ordenar_arreglos(n,r):

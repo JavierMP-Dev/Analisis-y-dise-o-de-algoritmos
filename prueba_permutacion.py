@@ -4,22 +4,23 @@ def permutar(array, R, permutacion_actual=[], usadas=[]):
         print(permutacion_actual)
         return
     
-    # Recorremos los elementos del array
+    #se recorrenlos elementos del arreglo
     for i in range(len(array)):
-        # Si el elemento no ha sido usado en la permutación actual, lo añadimos
+        # Si el elemento no ha sido usado en la permutación actual, se añade
         if i not in usadas:
             # Añadir el elemento a la permutación actual
             permutacion_actual.append(array[i])
             usadas.append(i)
             
-            # Llamada recursiva para continuar generando permutaciones
+            # Llamada recursiva para generar permutaciones
             permutar(array, R, permutacion_actual, usadas)
             
-            # Deshacer el cambio (backtracking)
+            # Deshacer el cambio
+            #se usa backtracking pyues se deshace el cambio
             permutacion_actual.pop()
             usadas.pop()
 
-# Ejemplo de uso:
+
 array = [1, 2, 3, 4]
 R = 2
 permutar(array, R)
