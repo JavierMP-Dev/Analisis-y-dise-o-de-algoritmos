@@ -22,5 +22,6 @@ def permutar(array, R, permutacion_actual=[], usadas=[]):
 
 
 array = [1, 2, 3, 4]
-R = 2
+R = 2,4
+
 permutar(array, R)
