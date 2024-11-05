@@ -1,3 +1,5 @@
+# Author: Javier Montoya Perez
+# Date: 31/10/2024 
 def permutar(array, R, permutacion_actual=[], usadas=[]):
     # Caso base: si la permutación actual tiene el tamaño R, se imprime
     if len(permutacion_actual) == R:
@@ -11,6 +13,7 @@ def permutar(array, R, permutacion_actual=[], usadas=[]):
             # Añadir el elemento a la permutación actual
             permutacion_actual.append(array[i])
             usadas.append(i)
+           
             
             # Llamada recursiva para generar permutaciones
             permutar(array, R, permutacion_actual, usadas)
@@ -20,8 +23,9 @@ def permutar(array, R, permutacion_actual=[], usadas=[]):
             permutacion_actual.pop()
             usadas.pop()
 
-
+    
 array = [1, 2, 3, 4]
-R = 2,4
+# Generar permutaciones de tamaño 2
+print("Permutaciones de tamaño 2:")
+permutar(array, 2)
 
-permutar(array, R)
