@@ -3,7 +3,8 @@
 def permutar(array, R, permutacion_actual=[], usadas=[]):
     # Caso base: si la permutación actual tiene el tamaño R, se imprime
     if len(permutacion_actual) == R:
-        print(permutacion_actual)
+        #imprimiendo la permutacion actual sin comas ni corchetes
+        print(' '.join(map(str, permutacion_actual)))
         return
     
     #se recorrenlos elementos del arreglo
@@ -25,7 +26,7 @@ def permutar(array, R, permutacion_actual=[], usadas=[]):
 
     
 array = [1, 2, 3, 4]
-# Generar permutaciones de tamaño 2
-print("Permutaciones de tamaño 2:")
+# generando permutaciones
+#print("Permutaciones de tamaño 2:")
 permutar(array, 2)
 
