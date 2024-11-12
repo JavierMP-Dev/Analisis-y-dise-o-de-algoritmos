@@ -1,32 +1,42 @@
 # Author: Javier Montoya Perez
 # Date: 31/10/2024 
-def permutar(array, R, permutacion_actual=[], usadas=[]):
-    # Caso base: si la permutación actual tiene el tamaño R, se imprime
-    if len(permutacion_actual) == R:
-        #imprimiendo la permutacion actual sin comas ni corchetes
-        print(' '.join(map(str, permutacion_actual)))
-        return
-    
-    #se recorrenlos elementos del arreglo
-    for i in range(len(array)):
-        # Si el elemento no ha sido usado en la permutación actual, se añade
-        if i not in usadas:
-            # Añadir el elemento a la permutación actual
-            permutacion_actual.append(array[i])
-            usadas.append(i)
-           
-            
-            # Llamada recursiva para generar permutaciones
-            permutar(array, R, permutacion_actual, usadas)
-            
-            # Deshacer el cambio
-            #se usa backtracking pyues se deshace el cambio
-            permutacion_actual.pop()
-            usadas.pop()
 
-    
-array = [1, 2, 3, 4]
-# generando permutaciones
-#print("Permutaciones de tamaño 2:")
-permutar(array, 2)
+def generar_permutaciones(array, R):
+    resultado = []
 
+    def backtrack(permutacion_actual, usadas):
+        # Caso base: si la permutación actual tiene tamaño R, la guardamos en el resultado
+        if len(permutacion_actual) == R:
+            resultado.append(permutacion_actual[:])  # Copiamos la permutación
+            return                                                                                                          
+
+        # Recorremos el array para agregar elementos a la permutación
+        for i in range(len(array)):
+            if i not in usadas:  # Verificamos que el elemento no se haya usado
+                permutacion_actual.append(array[i])
+                usadas.add(i)
+                
+                # Llamada recursiva para continuar construyendo la permutación
+                backtrack(permutacion_actual, usadas)
+                
+                # Deshacemos el cambio (backtracking)
+                permutacion_actual.pop()
+                usadas.remove(i)
+
+    # Llamamos a la función recursiva
+    backtrack([], set())
+    
+    # Ordenamos el resultado y lo imprimimos
+    resultado.sort()
+    for perm in resultado:
+        print(' '.join(map(str, perm)))
+
+
+# Entrada de datos
+# Entrada de datos
+N, R = map(int, input("Introduce N y R separados por espacio: ").split())  # Ej. 4 2
+array = list(map(int, input("Introduce los elementos del arreglo separados por espacio: ").split()))  # Ej. 1 2 3 4
+
+
+# Generamos las permutaciones de tamaño R
+generar_permutaciones(array, R)
