@@ -20,27 +20,36 @@ def obtNum():
     num2 = int(input("Num2-->"))
     return num1, num2
 
-print("Calculadora")
-print("1. Suma")
-print("2. Resta")
-print("3. Multiplicación")
-print("4. División")
+#Funcion principal
+def calculadora():
+  
+    while True:
+        ("Menu Calculadora")
+    
+        print("1. Suma")
+        print("2. Resta")
+        print("3. Multiplicación")
+        print("4. División")
 
-print("Elige una opcion")
-opc = int(input("Opcion: "))
+        print("Elige una opcion")
+        opc = int(input("Opcion: "))
 
-if opc == 1:
-    num1, num2 = obtNum()
-    suma(num1, num2)
+        if opc == 1:
+            num1, num2 = obtNum()
+            suma(num1, num2)
 
-elif opc == 2:
-    num1, num2 = obtNum()
-    resta(num1, num2)
+        elif opc == 2:
+            num1, num2 = obtNum()
+            resta(num1, num2)
 
-elif opc == 3:
-    num1, num2 = obtNum()
-    multi(num1, num2)
+        elif opc == 3:
+            num1, num2 = obtNum()
+            multi(num1, num2)
 
-elif opc == 4:
-    num1, num2 = obtNum()
-    divi(num1, num2)
+        elif opc == 4:
+            num1, num2 = obtNum()
+            divi(num1, num2)
+        else:
+            break
+        
+calculadora()
