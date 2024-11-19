@@ -24,8 +24,7 @@ def obtNum():
 def calculadora():
   
     while True:
-        ("Menu Calculadora")
-    
+        print("Menu Calculadora")
         print("1. Suma")
         print("2. Resta")
         print("3. Multiplicación")
