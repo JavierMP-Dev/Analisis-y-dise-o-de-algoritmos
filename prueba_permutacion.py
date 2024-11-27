@@ -5,38 +5,46 @@ def generar_permutaciones(array, R):
     resultado = []
 
     def backtrack(permutacion_actual, usadas):
-        # Caso base: si la permutación actual tiene tamaño R, la guardamos en el resultado
+        # Caso base: si la permutación actual tiene tamaño R, 
+        #se guarda en el resultado
         if len(permutacion_actual) == R:
             resultado.append(permutacion_actual[:])  # Copiamos la permutación
             return                                                                                                          
 
-        # Recorremos el array para agregar elementos a la permutación
+        # se recorre el array para agregar elementos a la lista de permutación
         for i in range(len(array)):
-            if i not in usadas:  # Verificamos que el elemento no se haya usado
+            if i not in usadas:  # Verifica que el elemento no se haya usado
                 permutacion_actual.append(array[i])
                 usadas.add(i)
                 
-                # Llamada recursiva para continuar construyendo la permutación
+                # Llamada recursiva para continuar construyendo la lista de permutación
                 backtrack(permutacion_actual, usadas)
                 
-                # Deshacemos el cambio (backtracking)
+                # aqui se aplica backtracking
                 permutacion_actual.pop()
                 usadas.remove(i)
 
-    # Llamamos a la función recursiva
+    # función recursiva
     backtrack([], set())
     
-    # Ordenamos el resultado y lo imprimimos
+    # ordenando el resultado con sort
+
     resultado.sort()
+    
     for perm in resultado:
         print(' '.join(map(str, perm)))
 
 
 # Entrada de datos
 # Entrada de datos
-N, R = map(int, input("Introduce N y R separados por espacio: ").split())  # Ej. 4 2
-array = list(map(int, input("Introduce los elementos del arreglo separados por espacio: ").split()))  # Ej. 1 2 3 4
+#N, R = map(int, input("Introduce N y R separados por espacio: ").split())  # Ej. 4 2
+#array = list(map(int, input("Introduce los elementos del arreglo separados por espacio: ").split()))  # Ej. 1 2 3 4
 
+inp = input()
+parameters = inp.split()
+
+N = int(parameters[0])
+R = int(parameters[1])
 
 # Generamos las permutaciones de tamaño R
-generar_permutaciones(array, R)
+generar_permutaciones(parameters, R)

@@ -61,8 +61,8 @@ laberinto = [
     "##########"
 ]
 
-# Convertimos el laberinto en una lista de listas
+# se convierte el laberinto en una lista de listas
 laberinto_matriz = [list(fila) for fila in laberinto]
 
-# Llamada a la función con los datos de entrada
+# buscando la función con los datos de entrada
 resolver_laberinto(R, C, Sr, Sc, Tr, Tc, O, laberinto_matriz)
