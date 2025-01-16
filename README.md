@@ -5,3 +5,6 @@
 
 tratando de hacer nuevos programas con los cuales sea mas eficiente el algoritmo como el de perfect match
 el dia de hoy hare el algoritmo del programa de permutacion
+
+
+Agregando ejercicios sobre el tema de grafos asi como cerrando la materia con los ultimos programas.
